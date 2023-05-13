@@ -12,11 +12,8 @@ var users = {};
 
 io.on('connection', socket => {
     socket.on('new-user-joined', name => {
-        if (name != 'null') {
-            users[socket.id] = name;
-            socket.broadcast.emit('user-connected', users[socket.id]);
-        }
-        
+        users[socket.id] = name;
+        socket.broadcast.emit('user-connected', users[socket.id]);
     });
 
     socket.on('send', message => {

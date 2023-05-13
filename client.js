@@ -6,9 +6,7 @@ const form = document.getElementById('send');
 
 
 const newName = prompt("Enter Your name:");
-if (newName != 'null') {
-    socket.emit('new-user-joined', newName);
-}
+socket.emit('new-user-joined', newName);
 
 
 function append(message, position){
